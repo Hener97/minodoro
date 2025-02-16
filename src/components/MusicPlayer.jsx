@@ -54,18 +54,18 @@ function MusicPlayer() {
   });
 
   return (
-    <div class="bg-white dark:bg-gray-800 p-4 shadow-lg">
+    <div class="bg-white dark:bg-gray-800 p-4 shadow-lg rounded-lg transition-colors duration-200"> {/* Light Mode bg-white, expliziter rounded-lg, transition */}
       <div class="flex items-center gap-4">
         <button
           onClick={togglePlay}
-          class="p-2 rounded-full bg-gray-100 dark:bg-gray-700"
+          class="p-2 rounded-full bg-gray-light-200 dark:bg-gray-700 hover:bg-gray-light-300 dark:hover:bg-gray-600 transition-colors duration-200"  // Light Mode hover bg
         >
           {isPlaying() ? "⏸" : "▶️"}
         </button>
         <select
           value={currentTrack()}
           onInput={(e) => setCurrentTrack(Number(e.target.value))}
-          class="bg-transparent flex-1 dark:bg-gray-700"
+          class="bg-transparent flex-1 text-gray-light-700 dark:text-gray-300 dark:bg-gray-700 transition-colors duration-200 rounded" // Light Mode text color, rounded
         >
           {playlist().map((track, index) => (
             <option value={index} key={index}>
@@ -73,7 +73,7 @@ function MusicPlayer() {
             </option>
           ))}
         </select>
-        <span class="text-sm">{currentTimeFormatted()}</span>
+        <span class="text-sm text-gray-light-700 dark:text-gray-300 transition-colors duration-200">{currentTimeFormatted()}</span> {/* Light Mode text color */}
       </div>
       <input
         type="range"

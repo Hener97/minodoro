@@ -1,21 +1,35 @@
 /* FILE_PATH: src\assets\base.css */
 @import "tailwindcss";
-/* Zusätzliche globale Styles */
 
-/* Eigene Animation per Tailwind-Plugin-Ansatz */
-@layer utilities {
-  .animate-fade-in {
-    @apply opacity-0 animate-[fadeIn_0.5s_ease-in_forwards];
-  }
+/* Zusätzliche globale Styles - Reduziert und Tailwind-konformer */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in; /* Behalten, da spezifische Animation */
 }
 
 @keyframes fadeIn {
-  0% {
+  from {
     opacity: 0;
     transform: translateY(-10px);
   }
-  100% {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Progress Ring Schatten - Kann mit Tailwind Schattenklassen optimiert werden, aber vorerst behalten */
+.dark .progress-ring {
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.1)); /* Behalten, da spezifischer Schatten */
+}
+
+/* Count Up Text -  Kann mit Tailwind Textfarben und Gradienten optimiert werden, aber vorerst behalten */
+.count-up {
+  background: linear-gradient(45deg, #4f46e5, #10b981);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+.dark .count-up {
+  background: linear-gradient(45deg, #818cf8, #34d399);
 }

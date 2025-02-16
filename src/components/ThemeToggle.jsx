@@ -26,13 +26,13 @@ function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+      class="p-2 rounded-full hover:bg-gray-light-200 dark:hover:bg-gray-700 transition-colors duration-200" // Light Mode Hover Hintergrundfarbe, transition
       aria-label={`Switch to ${isDark() ? "light" : "dark"} mode`}
     >
       {isDark() ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6 text-yellow-400"
+          class="h-6 w-6 text-yellow-400 transition-colors duration-200" // transition hinzugefügt
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -47,7 +47,7 @@ function ThemeToggle() {
       ) : (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6 text-orange-500"
+          class="h-6 w-6 text-orange-500 transition-colors duration-200" // transition hinzugefügt
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"

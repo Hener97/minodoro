@@ -32,22 +32,22 @@ function StatBadge(props) {
 
   return (
     <div
-      class="flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-shadow"
+      class="flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-shadow transition-colors duration-200" // transition-colors hinzugefügt
       role="status"
     >
       <div class="flex items-center gap-2 mb-2">
         <span class="text-2xl">{icon}</span>
-        <span class="text-sm font-medium text-gray-500 dark:text-gray-400">
+        <span class="text-sm font-medium text-gray-light-500 dark:text-gray-400 transition-colors duration-200"> {/* Light Mode Textfarbe, transition */}
           {title}
         </span>
       </div>
 
-      <div class="text-3xl font-bold text-gray-800 dark:text-gray-100 transition-all duration-300">
+      <div class="text-3xl font-bold text-gray-light-800 dark:text-gray-100 transition-all duration-300 transition-colors duration-200"> {/* Light Mode Textfarbe, transition */}
         <span class="count-up">{animatedValue()}</span>
         <span class="text-lg ml-1">x</span>
       </div>
 
-      <div class="mt-2 w-full bg-gray-100 dark:bg-gray-700 h-1 rounded-full overflow-hidden">
+      <div class="mt-2 w-full bg-gray-light-100 dark:bg-gray-700 h-1 rounded-full overflow-hidden transition-colors duration-200"> {/* Light Mode Backgroundfarbe, transition */}
         <div
           class="bg-blue-500 h-full transition-all duration-500"
           style={{ width: `${Math.min((value / maxValue) * 100, 100)}%` }}
