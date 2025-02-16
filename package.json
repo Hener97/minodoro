@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "h": "bun run dev-scripts/injectHeaders.js",
+    "cc": "bun run dev-scripts/aggregateFiles.js"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.6",

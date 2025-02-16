@@ -13,14 +13,16 @@ function SettingsPanel(props) {
   };
 
   return (
-    <div class="fixed inset-0 bg-black/50 flex items-center justify-center">
-      <div class="bg-white dark:bg-gray-800 p-6 rounded-xl w-96 shadow-lg transition-colors duration-200"> {/* transition hinzugefügt */}
-        <div class="flex justify-between mb-4 text-gray-light-800 dark:text-white transition-colors duration-200"> {/* Light Mode Textfarbe, transition */}
-          <h3 class="text-xl font-bold">Settings</h3>
-          <button onClick={props.onClose} class="text-gray-light-600 dark:text-gray-400 hover:text-gray-light-800 dark:hover:text-white transition-colors duration-200">&times;</button> {/* Light Mode Button Farbe, transition */}
+    <div class="fixed inset-0 bg-black/60 flex items-center justify-center">
+      <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-2xl w-96 border border-gray-200 dark:border-gray-700 transition-colors duration-300">
+        <div class="flex justify-between mb-6 text-gray-800 dark:text-white">
+          <h3 class="text-2xl font-bold">Settings</h3>
+          <button onClick={props.onClose} class="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors duration-300">
+            &times;
+          </button>
         </div>
 
-        <div class="space-y-4">
+        <div class="space-y-6">
           <div>
             <label class="block mb-1 text-gray-light-700 dark:text-gray-300 transition-colors duration-200">Pomodoro (minutes)</label> {/* Light Mode Label Farbe, transition */}
             <input
@@ -68,7 +70,7 @@ function SettingsPanel(props) {
 
           <button
             onClick={saveSettings}
-            class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition-colors duration-200" // transition hinzugefügt
+            class="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition-colors duration-300"
           >
             Save Settings
           </button>

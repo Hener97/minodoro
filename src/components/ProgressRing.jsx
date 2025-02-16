@@ -13,14 +13,14 @@ function ProgressRing(props) {
   );
 
   return (
-    <div class="relative cursor-pointer" onClick={props.onClick}> {/* cursor-pointer explizit hinzugefügt */}
+    <div class="relative cursor-pointer" onClick={props.onClick}>
       <svg width={size} height={size}>
         <circle
           cx="50%"
           cy="50%"
           r={radius()}
           fill="transparent"
-          class="stroke-gray-light-200 dark:stroke-gray-700 transition-colors duration-200" // Light Mode Stroke Farbe, transition
+          class="stroke-gray-light-200 dark:stroke-gray-700 transition-colors duration-200"
           stroke-width="8"
         />
         <circle
@@ -35,7 +35,7 @@ function ProgressRing(props) {
           transform={`rotate(-90 ${size / 2} ${size / 2})`}
         />
       </svg>
-      <div class="absolute inset-0 flex items-center justify-center text-gray-light-800 dark:text-gray-200 transition-colors duration-200"> {/* Light Mode Textfarbe, transition */}
+      <div class="absolute inset-0 flex items-center justify-center text-gray-800 dark:text-gray-200 transition-colors duration-300">
         {props.children}
       </div>
     </div>
