@@ -2,7 +2,7 @@
 import { createMemo } from "solid-js";
 
 function ProgressRing(props) {
-  const size = props.size || 200;
+  const size = props.size || 300
   const color = props.color || "stroke-blue-500";
   const progress = props.progress || 0;
 
