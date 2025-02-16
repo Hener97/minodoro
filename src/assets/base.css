@@ -1,0 +1,21 @@
+/* FILE_PATH: src\assets\base.css */
+@import "tailwindcss";
+/* Zusätzliche globale Styles */
+
+/* Eigene Animation per Tailwind-Plugin-Ansatz */
+@layer utilities {
+  .animate-fade-in {
+    @apply opacity-0 animate-[fadeIn_0.5s_ease-in_forwards];
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
