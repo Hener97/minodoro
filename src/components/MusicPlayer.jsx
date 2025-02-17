@@ -1,6 +1,7 @@
 // FILE_PATH: src\components\MusicPlayer.jsx
 import { createSignal, createEffect, onCleanup } from "solid-js";
-
+import { FiPlay } from 'solid-icons/fi';
+import { HiOutlinePause } from 'solid-icons/hi';
 function MusicPlayer() {
   const [playlist] = createSignal([
     { title: "Lo-fi Chill", url: "/audio/lofi.mp3" },
@@ -74,7 +75,11 @@ function MusicPlayer() {
           onClick={togglePlay}
           class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300"
         >
-          {isPlaying() ? "⏸" : "▶️"}
+          {isPlaying() ? (
+            <HiOutlinePause class="cursor-pointer text-4xl text-gray-800 dark:text-gray-300" />
+          ) : (
+            <FiPlay class="cursor-pointer text-4xl text-gray-800 dark:text-gray-300" />
+          )}
         </button>
 
         <select

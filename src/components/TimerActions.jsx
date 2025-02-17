@@ -1,28 +1,37 @@
-import pomodoroStore from "../stores/pomodoro";
+import { FiPlay, FiPause } from 'solid-icons/fi';
+import pomodoroStore from '../stores/pomodoro';
 
+import { TbReload } from 'solid-icons/tb'
 function TimerActions() {
+  const handlePlayPause = () => {
+    if (pomodoroStore.store.timerRunning) {
+      pomodoroStore.pauseTimer();
+    } else {
+      pomodoroStore.startTimer();
+    }
+  };
+
+  const handleReload = () => {
+    pomodoroStore.resetTimer && pomodoroStore.resetTimer();
+  };
+
   return (
-    <div class="flex gap-4 mb-8">
-      <button
-        onClick={() => {
-          if (pomodoroStore.store.timerRunning)
-            pomodoroStore.pauseTimer();
-          else pomodoroStore.startTimer();
-        }}
-        class={`px-8 py-3 rounded-full text-lg font-semibold transition-transform hover:scale-105 transition-colors duration-200 ${
-          pomodoroStore.store.timerRunning
-            ? "bg-red-500 hover:bg-red-600 text-white"
-            : "bg-green-500 hover:bg-green-600 text-white"
-        }`}
-      >
-        {pomodoroStore.store.timerRunning ? "⏸ Pause" : "▶️ Start"}
-      </button>
-      <button
-        onClick={() => pomodoroStore.resetTimer()}
-        class="px-6 py-3 rounded-full bg-gray-light-200 hover:bg-gray-light-300 dark:bg-gray-700 dark:hover:bg-gray-600 transition-colors duration-200 text-gray-light-700 dark:text-gray-300"
-      >
-        ↻ Reset
-      </button>
+    <div class="flex gap-4">
+      {pomodoroStore.store.timerRunning ? (
+        <FiPause
+          onClick={handlePlayPause}
+          class="cursor-pointer text-5xl text-white hover:text-gray-300 transition-colors transition-transform transform hover:scale-110 duration-300"
+        />
+      ) : (
+        <FiPlay
+          onClick={handlePlayPause}
+          class="cursor-pointer text-5xl text-white hover:text-gray-300 transition-colors transition-transform transform hover:scale-110 duration-300"
+        />
+      )}
+      <TbReload
+        onClick={handleReload}
+        class="cursor-pointer text-5xl text-white hover:text-gray-300 transition-colors transition-transform transform hover:scale-110 duration-300"
+      />
     </div>
   );
 }

@@ -7,6 +7,7 @@ import SettingsPanel from "./SettingsPanel";
 // Import new component
 import StatsSidebar from "./StatsSidebar";
 import TimerActions from "./TimerActions";
+import { IoSettingsOutline } from 'solid-icons/io'
 function TimerComponent() {
   const [showSettings, setShowSettings] = createSignal(false);
   const [tasks, setTasks] = createSignal([
@@ -75,7 +76,7 @@ function TimerComponent() {
               onClick={() => setShowSettings(!showSettings())}
               class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 shadow-sm hover:shadow-md rounded-lg transition-all text-gray-light-700 dark:text-gray-300 transition-colors duration-200"
             >
-              ⚙️ Customize
+              <IoSettingsOutline class="text-2xl" />
             </button>
           </div>
         </div>
@@ -131,11 +132,10 @@ function TimerComponent() {
                 {Object.entries(sessionTypes).map(([key, session]) => (
                   <button
                     onClick={() => pomodoroStore.switchSession(key)}
-                    class={`px-6 py-2 rounded-full border-2 transition-all text-gray-light-700 dark:text-gray-300 ${
-                      pomodoroStore.store.currentSession === key
-                        ? `text-white ${sessionColors[key]} border-transparent`
-                        : "border-gray-light-200 hover:border-gray-light-300 dark:border-gray-700 dark:hover:border-gray-600 transition-colors duration-200"
-                    }`}
+                    class={`px-6 py-2 rounded-full border-2 transition-all text-gray-light-700 dark:text-gray-300 ${pomodoroStore.store.currentSession === key
+                      ? `text-white ${sessionColors[key]} border-transparent`
+                      : "border-gray-light-200 hover:border-gray-light-300 dark:border-gray-700 dark:hover:border-gray-600 transition-colors duration-200"
+                      }`}
                   >
                     {session}
                   </button>
