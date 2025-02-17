@@ -1,32 +1,38 @@
 ## Minodoro
 
-My App is a Pomodoro tracker designed to help you stay focused by monitoring your work and break intervals. Developed with SolidJS, the app features a timer, task management, a music player, and customizable settings.
+Minodoro is a Pomodoro tracker built with SolidJS to help you stay focused by managing work and break sessions while organizing your tasks.
+
+
+## Troubleshooting & Copyable Commands
 
 ### Installation
 
+Install all dependencies by running:
 ```bash
 $ npm install
 ```
 
-### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
+### Starting the Server
 
-## Available Scripts
+To start the server in development mode, run:
+```bash
+$ npm run dev
+```
 
-In the project directory, you can run:
+### Build
 
-### `npm run dev`
+To build the project for production, run:
+```bash
+$ npm run build
+```
 
-Runs the app in the development mode.<br>
-Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
+### Clearing localStorage
 
-### `npm run build`
-
-Builds the app for production to the `dist` folder.<br>
-It correctly bundles Solid in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+To clear localStorage, open the developer console in your browser and run:
+```javascript
+localStorage.clear()
+```
 
 ## Deployment
 
-Learn more about deploying your application with the [documentations](https://vite.dev/guide/static-deploy.html)
+Learn more about deploying your application with the [documentation](https://vite.dev/guide/static-deploy.html)

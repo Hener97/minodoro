@@ -1,4 +1,4 @@
-import { createSignal, createMemo } from "solid-js";
+import { createSignal, createMemo, createEffect } from "solid-js";
 import pomodoroStore from "../stores/pomodoro";
 import ProgressRing from "./ProgressRing";
 import TasksPanel from "./TasksPanel";
@@ -8,13 +8,31 @@ import SettingsPanel from "./SettingsPanel";
 import StatsSidebar from "./StatsSidebar";
 import TimerActions from "./TimerActions";
 import { IoSettingsOutline } from 'solid-icons/io'
+
+// Lade Tasks aus localStorage oder setze Default-Werte
+const storedTasks = localStorage.getItem("pomodoroTasks");
+const initialTasks = storedTasks ? JSON.parse(storedTasks) : [
+  "Prepare project plan",
+  "Review code",
+  "Write documentation",
+];
+
 function TimerComponent() {
   const [showSettings, setShowSettings] = createSignal(false);
-  const [tasks, setTasks] = createSignal([
-    "Prepare project plan",
-    "Review code",
-    "Write documentation",
-  ]);
+  const [tasks, setTasks] = createSignal(initialTasks);
+
+  // Persistiere Tasks bei Änderungen
+  createEffect(() => {
+    localStorage.setItem("pomodoroTasks", JSON.stringify(tasks()));
+  });
+
+  // Effekt: Aktualisiere den Dokument-Titel mit verbleibender Zeit
+  createEffect(() => {
+    const remaining = pomodoroStore.store.timeRemaining;
+    const minutes = Math.floor(remaining / 60);
+    const seconds = remaining % 60;
+    document.title = `${minutes}:${seconds.toString().padStart(2, "0")} - Pomodash`;
+  });
 
   const sessionTypes = {
     pomodoro: "Focus Time",
